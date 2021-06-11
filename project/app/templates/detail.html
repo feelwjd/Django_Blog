@@ -14,8 +14,8 @@
 <body>
     {% block contents %}
     <h3>제목 : {{blog.title}}</h3>
-    <h6>작성자 : {{blog.writer}}</h6>
-    <h6>{{blog.body}}</h6>
+    <h6>작성자 : {{blog.writer}}</h6> <br><br>
+    <h5>{{blog.body}}</h6><br><br>
     {{blog.date}}<br>
     <button type = "button" class = "btn btn-primary" onclick = "location.href = '/'">돌아가기</button>
     {% endblock %}
