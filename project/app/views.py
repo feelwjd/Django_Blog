@@ -33,3 +33,17 @@ def newr(request):
         new_board.save()
         return redirect('/')
     return render(request, 'newr.html', {'form' :form})
+
+def update(request, pk):
+    form = BlogForm(request.POST)
+    num = Blog.objects.get(pk=pk)
+    if form.is_valid():
+        auser = request.user.username
+        new_board = Blog(
+            title = form.cleaned_data['title'],
+            body = form.cleaned_data['body'],
+            writer = auser
+        )
+        new_board.save()
+        return redirect('/detail/'+str(num.id))
+    return render(request, 'update.html', {'form' :form, 'num':num})

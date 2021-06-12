@@ -13,12 +13,15 @@
 </head>
 <body>
     {% block contents %}
+    {% csrf_token %}
     <h3>제목 : {{blog.title}}</h3>
     <h6>작성자 : {{blog.writer}}</h6> <br><br>
     <h5>{{blog.body}}</h6><br><br>
     {{blog.date}}<br>
     <button type = "button" class = "btn btn-primary" onclick = "location.href = '/'">돌아가기</button>
+    <br><br>
+    <button type = "button" class = "btn btn-danger" onclick = "location.href = '{% url 'update' pk=blog.id %}'">글 수정</button>
     {% endblock %}
-
+    
 </body>
 </html>
